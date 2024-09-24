@@ -7,13 +7,15 @@ interface StrapiImage {
   }
   
   // Define a type for the house entity
-  interface House {
+ export interface House {
     id: number;
     title: string;
     phone: string;
     images: StrapiImage[];
   }
   
+  // Define a generic type for Strapi responses
+
   // Define a generic type for Strapi responses
   interface StrapiResponse<T> {
     data: T[];
@@ -27,8 +29,6 @@ interface StrapiImage {
     };
   }
   
-
-  // Updated StrapiService class
   class StrapiService {
     private baseUrl: string;
     private client: AxiosInstance;
@@ -54,8 +54,11 @@ interface StrapiImage {
       }
     }
   
-    // Method to get all entries from a collection
-    async getEntries<T>(collectionName: string, queryParams?: Record<string, any>): Promise<StrapiResponse<T>> {
+    // Method to get all entries from a collection with optional query params
+    async getEntries<T>(
+      collectionName: string,
+      queryParams?: Record<string, string | number | boolean> // More specific type for query params
+    ): Promise<StrapiResponse<T>> {
       try {
         const response = await this.client.get<StrapiResponse<T>>(`/${collectionName}`, {
           params: queryParams,
@@ -80,4 +83,5 @@ interface StrapiImage {
   }
   
   export default StrapiService;
+  
   

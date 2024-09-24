@@ -38,20 +38,40 @@ const sampleDataSet = {
         },
       ],
     },
+    {
+      id: 5,
+      documentId: "m9nopqrstuv",
+      title: "Villa Outside City",
+      phone: "+96112345678",
+      gmapsEmbedUrl:
+        "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d13254.517680079929!2d35.513882962719734!3d33.84766629227747!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2slb!4v1727171384644!5m2!1sen!2slb",
+      location: "far away",
+      isAvailable: false, // Not available
+      images: [
+        {
+          id: 3,
+          documentId: "mnoxyz123",
+          url: "/uploads/img_3_6abcdef.webp",
+        },
+      ],
+    },
   ],
 };
+
 export const HomePage = () => {
   return (
-    <div className=" grid grid-cols-1 gap-5 bg-gray-200 p-5 rounded-lg">
-      {sampleDataSet.data.map((item) => (
-        <OurCard
-          key={item.id}
-          title={item.title}
-          capacity={10} // assuming a default or specific capacity
-          contact={item.phone}
-          images={item.images} // pass the images array if available
-        />
-      ))}{" "}
+    <div className="grid grid-cols-1 gap-5 bg-gray-200 p-5 rounded-lg">
+      {sampleDataSet.data
+        .filter((item) => item.isAvailable) // Only show available items
+        .map((item) => (
+          <OurCard
+            key={item.id}
+            title={item.title}
+            capacity={10} // assuming a default or specific capacity
+            contact={item.phone}
+            images={item.images} // pass the images array if available
+          />
+        ))}
     </div>
   );
 };

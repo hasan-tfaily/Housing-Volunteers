@@ -16,14 +16,11 @@ export const DialogWithImages: React.FC<DialogWithImagesProps> = ({
 }) => {
   return (
     <Dialog>
-      <DialogTrigger>Open</DialogTrigger>
+      <DialogTrigger>show Images</DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Are you absolutely sure?</DialogTitle>
-          <DialogDescription>
-            This action cannot be undone. This will permanently delete your
-            account and remove your data from our servers.
-          </DialogDescription>
+          <DialogTitle>Images</DialogTitle>
+          <DialogDescription></DialogDescription>
         </DialogHeader>
         {images && images.length > 0 && (
           <div>

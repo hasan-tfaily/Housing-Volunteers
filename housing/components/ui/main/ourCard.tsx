@@ -27,19 +27,14 @@ export const OurCard: React.FC<OurCardProps> = ({
   const formattedContact = `https://wa.me/${contact.replace("+", "")}`; // Replace '+' for WhatsApp URL format
 
   return (
-    <Card className="w-96 p-4 space-y-4">
-      {" "}
-      {/* Added padding and vertical spacing */}
+    <Card className="w-96 p-4 space-y-4" key={"1"}>
       <CardHeader className="space-y-2">
-        {" "}
-        {/* Added vertical spacing */}
-        <CardTitle className="text-lg font-semibold">{title}</CardTitle>{" "}
-        {/* Title formatting */}
+        <CardTitle className="text-lg font-semibold">{title}</CardTitle>
         <CardDescription className="space-y-1">
-          {" "}
-          {/* Spacing between description lines */}
-          <p>Capacity: {capacity}</p>
-          <p>People Contact: {contact}</p>
+          <div>
+            <p>Capacity: {capacity}</p>
+            <p>People Contact: {contact}</p>
+          </div>
         </CardDescription>
         <a
           href={formattedContact}

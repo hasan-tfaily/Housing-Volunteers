@@ -1,14 +1,14 @@
-import { fetchFilteredData, House } from "./data";
+// import { fetchFilteredData, House } from "./data";
 import Card from "../main/Card"; // Assuming the Card component is in the same directory
 
 export const HousesPage = async () => {
-  const filters = { isAvailable: { $eq: true } }; // Example filter
-  const houses: House[] = await fetchFilteredData({
-    filters,
-    populate: "*",
-    sort: { createdAt: "desc" },
-    pagination: { page: 1, pageSize: 10 },
-  });
+  // const filters = { isAvailable: { $eq: true } }; // Example filter
+  // const houses: House[] = await fetchFilteredData({
+  //   filters,
+  //   populate: "*",
+  //   sort: { createdAt: "desc" },
+  //   pagination: { page: 1, pageSize: 10 },
+  // });
 
   return (
     <div className=" grid grid-cols-1 gap-5">

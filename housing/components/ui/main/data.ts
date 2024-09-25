@@ -67,6 +67,18 @@ export interface Image {
   }
   
   // Define the House type
+ // Define Localization type if you know its structure
+interface Localization {
+    id: number;
+    locale: string;
+    documentId: string;
+    title: string;
+    createdAt: string;
+    updatedAt: string;
+    publishedAt: string;
+  }
+  
+  // Update the House type to use the Localization type
   export interface House {
     id: number;
     documentId: string;
@@ -86,7 +98,8 @@ export interface Image {
     images: Image[] | null;
     region: Region | null;
     listing_type: ListingType | null;
-    localizations: any[]; // You can type this more specifically if you know the structure
+    localizations: Localization[]; // More specific type for localizations
   }
+  
   
   

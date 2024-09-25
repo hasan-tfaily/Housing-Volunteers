@@ -27,7 +27,7 @@ export async function fetchFilteredData({
   );
 
   // Use HTTP explicitly for the API call
-  const strapiService = new StrapiService('http://167.71.42.132');
+  const strapiService = new StrapiService('http://167.71.42.132/admin');
   const response = await strapiService.getEntries(`api/listing?${query}`);
 
   // Handle the response and ensure it matches the House[] type
